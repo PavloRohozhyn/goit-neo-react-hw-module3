@@ -25,23 +25,24 @@ function App() {
     setSbox(e.target.value);
   }; // get value from event
 
-  const handleContactForm = (e) => {
+  const handleContactForm = (v, e) => {
     // validation
-    if ("" === e.uname) {
+    if ("" === v.uname) {
       console.log("name is empty");
       return;
     }
-    if (!/[0-9]{3}-[0-9]{2}-[0-9]{2}/.test(e.unumber)) {
+    if (!/[0-9]{3}-[0-9]{2}-[0-9]{2}/.test(v.unumber)) {
       console.log("number is fail");
       return;
     }
     // end validation
     const newRec = {
       id: nanoid(),
-      name: e.uname,
-      number: e.unumber,
+      name: v.uname,
+      number: v.unumber,
     };
     addContact(newRec);
+    e.resetForm();
   }; // Add New Contact handler form
 
   const addContact = (newContact) => {

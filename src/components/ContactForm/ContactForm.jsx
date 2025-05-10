@@ -14,8 +14,8 @@ const ContactForm = ({ fn }) => {
       .max(50, "Too long!")
       .required("Required"),
     unumber: string()
-      .min(9, "Too short")
-      .max(9, "Too long")
+      .min(3, "Too short")
+      .max(50, "Too long")
       .matches("^[0-9-]+$", "wrong format, it should be 000-00-00")
       .required("Required"),
   });
